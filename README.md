@@ -56,8 +56,5 @@
 
 <div align="center">
 
-`sudo rm -rf /bugs`
-
-**permission denied. 🗿**
 
 </div>
