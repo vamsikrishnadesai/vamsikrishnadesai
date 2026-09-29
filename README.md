@@ -15,7 +15,7 @@
 
 </div>
 
-> > working across the full stack — from interfaces to APIs and databases.
+> working across the full stack — from interfaces to APIs and databases.
 
 - 🎨 frontend & ui development
 - ⚛️ react & typescript
