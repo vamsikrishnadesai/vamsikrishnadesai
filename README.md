@@ -2,7 +2,7 @@
 
 # `VAMSI.EXE`
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&duration=1800&pause=700&color=00BFFF&center=true&vCenter=true&width=600&lines=%5B+SYSTEM+INITIALIZING...+%5D;%5B+SYSTEM+ONLINE+%5D;%3E+FULL-STACK+DEVELOPER+%2F%2F+SYSTEM+BUILDER;%3E+INTERFACE+%E2%86%92+API+%E2%86%92+DATABASE" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=17&duration=2800&pause=900&color=00BFFF&center=true&vCenter=true&width=650&lines=%3E+FULL-STACK+DEVELOPER_%3E+SYSTEM+BUILDER_%3E+INTERFACE+%E2%86%92+API+%E2%86%92+DATABASE" />
 
 <br>
 
@@ -13,26 +13,7 @@
 
 `react` · `typescript` · `python` · `fastapi` · `sqlalchemy` · `postgresql`
 
-<br><br>
-
-```text
-          ┌──────────┐
-          │   UI     │
-          │  REACT   │
-          └────┬─────┘
-               │
-               ▼
-          ┌──────────┐
-          │   API    │
-          │ FASTAPI  │
-          └────┬─────┘
-               │
-               ▼
-          ┌──────────┐
-          │ DATABASE │
-          │ POSTGRES │
-          └──────────┘
-### 🖥️ currently
+</div>
 
 > working on **enterprise ERP systems** and **TCS iON integrations**
 
