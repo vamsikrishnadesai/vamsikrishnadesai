@@ -15,8 +15,10 @@
 
 </div>
 
-> working on **enterprise ERP systems** and **TCS iON integrations**
+> > working across the full stack — from interfaces to APIs and databases.
 
+- 🎨 frontend & ui development
+- ⚛️ react & typescript
 - ⚙️ backend development
 - 🔌 API integrations
 - 🐘 PostgreSQL & SQLAlchemy
