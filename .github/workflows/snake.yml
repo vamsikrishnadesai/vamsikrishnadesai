@@ -24,6 +24,31 @@ jobs:
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
 
+      - name: Remove bottom timeline
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          for filename in [
+              "dist/github-snake.svg",
+              "dist/github-snake-dark.svg"
+          ]:
+              path = Path(filename)
+              svg = path.read_text()
+
+              # Remove the bottom timeline/progress bar.
+              svg = re.sub(
+                  r'<rect[^>]*(?:height="(?:1[0-9]|2[0-9])"|y="(?:2[4-9][0-9]|3[0-9][0-9])")[^>]*/>',
+                  '',
+                  svg
+              )
+
+              path.write_text(svg)
+
+          print("bottom timeline removed")
+          PY
+
       - name: Publish snake
         uses: crazy-max/ghaction-github-pages@v4
         with:
