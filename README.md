@@ -53,12 +53,4 @@
   />
 </p>
 
-<p align="center">
-  <code>BUILD · BREAK · IMPROVE · REPEAT</code>
-</p>
-
 ---
-
-<div align="center">
-  <sub>engineered with curiosity. shipped with intent.</sub>
-</div>
