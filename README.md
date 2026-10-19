@@ -76,29 +76,65 @@
 
 ### › 🦡 contribution.exe
 
-<p align="center">
-  <img
-    src="./assets/honey-badger-loop.gif"
-    alt="VAMSI.EXE animated honey badger"
-    width="100%"
-  />
-</p>
 
-<p align="center">
-  <code>BUILD · BREAK · IMPROVE · REPEAT</code>
-</p>
+---
+
+### › 🦡 contribution.exe
+
+<table>
+  <tr>
+    <td width="34%" align="center" valign="middle">
+      <img
+        src="./assets/honey-badger-hero.png"
+        alt="Honey badger"
+        width="100%"
+      />
+    </td>
+    <td width="66%" valign="middle">
 
 <p align="center">
   <img
     src="https://ghchart.rshah.org/E8A04B/vamsikrishnadesai"
-    alt="GitHub contribution calendar"
+    alt="GitHub contribution graph"
     width="100%"
   />
 </p>
 
+<p align="center">
+  <code>MORE COMMITS →</code>
+</p>
+
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td align="center" width="25%">
+      <h2>☆</h2>
+      <sub>Repositories</sub><br/>
+      <strong>View profile →</strong>
+    </td>
+    <td align="center" width="25%">
+      <h2>‹ ›</h2>
+      <sub>Commits</sub><br/>
+      <strong>View activity →</strong>
+    </td>
+    <td align="center" width="25%">
+      <h2>⑂</h2>
+      <sub>Pull Requests</sub><br/>
+      <strong>View PRs →</strong>
+    </td>
+    <td align="center" width="25%">
+      <h2>◉</h2>
+      <sub>Issues</sub><br/>
+      <strong>View issues →</strong>
+    </td>
+  </tr>
+</table>
+
+<p align="center">
+  <code>BUILD</code>　·　<code>BREAK</code>　·　<code>IMPROVE</code>　·　<code>REPEAT</code>
+</p>
+
 ---
-
-<div align="center">
-  <sub>engineered with curiosity. shipped with intent.</sub>
-</div>
-
