@@ -7,14 +7,6 @@
 
 <br/>
 
-<img
-  src="./assets/honey-badger-hero.png"
-  width="100%"
-  alt="Cinematic honey badger artwork"
-/>
-
-<br/>
-
 **i build the whole thing.**  
 *from interface → api → business logic → database.*
 
@@ -55,17 +47,14 @@
 
 <p align="center">
   <img
-    src="https://ghchart.rshah.org/E8A04B/vamsikrishnadesai"
-    alt="GitHub contribution calendar"
+    src="./assets/contribution-banner.png"
+    alt="Honey badger with glowing amber contribution grid"
     width="100%"
   />
 </p>
 
 <p align="center">
-  <code>BUILD</code>　·　
-  <code>BREAK</code>　·　
-  <code>IMPROVE</code>　·　
-  <code>REPEAT</code>
+  <code>BUILD · BREAK · IMPROVE · REPEAT</code>
 </p>
 
 ---
