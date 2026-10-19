@@ -1,8 +1,8 @@
-<div align="center">
+ <div align="center">
 
 # `VAMSI.EXE`
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=17&duration=2800&pause=900&color=00BFFF&center=true&vCenter=true&width=850&lines=%3E+FULL-STACK+DEVELOPER+%2F%2F+SYSTEM+BUILDER;%3E+INTERFACE+%E2%86%92+API+%E2%86%92+DATABASE" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=17&duration=2800&pause=900&color=E8A04B&center=true&vCenter=true&width=850&lines=%3E+BACKEND+ENGINEER+%2F%2F+SYSTEMS+BUILDER;%3E+INTERFACE+%E2%86%92+API+%E2%86%92+DATABASE" />
 
 <br>
 
@@ -15,48 +15,45 @@
 
 </div>
 
-> working across the full stack — from interfaces to APIs and databases.
+> building across the full stack — designing interfaces, engineering APIs, and shaping the data behind real-world systems.
 
-- 🎨 frontend & ui development
-- ⚛️ react & typescript
-- ⚙️ backend development
-- 🔌 API integrations
+- 🎨 frontend & UI engineering
+- ⚛️ React & TypeScript
+- ⚙️ backend systems & business logic
+- 🔌 API integrations & external system sync
 - 🐘 PostgreSQL & SQLAlchemy
-- ⚡ realtime systems
-- 📦 BOM / EBD workflows
+- ⚡ real-time systems & event-driven updates
+- 📦 enterprise workflows — BOM / EBD / ERP
 
 ---
 
 ### 🛠️ stack
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=python,fastapi,postgres,react,typescript,nodejs,git,docker,linux" />
+  <img src="https://skillicons.dev/icons?i=python,fastapi,postgres,react,typescript,nodejs,git,docker,linux" alt="Technology stack" />
 </p>
 
 ---
 
-### 🐍 contribution.exe
+### 🦡 contribution.exe
 
 <p align="center">
-  <picture>
-    <source
-      media="(prefers-color-scheme: dark)"
-      srcset="https://raw.githubusercontent.com/vamsikrishnadesai/vamsikrishnadesai/output/github-snake-dark.svg"
-    />
-    <source
-      media="(prefers-color-scheme: light)"
-      srcset="https://raw.githubusercontent.com/vamsikrishnadesai/vamsikrishnadesai/output/github-snake.svg"
-    />
-    <img
-      src="https://raw.githubusercontent.com/vamsikrishnadesai/vamsikrishnadesai/output/github-snake.svg"
-      alt="github contribution snake"
-    />
-  </picture>
+  <img
+    src="./assets/honey-badger-loop.gif"
+    alt="VAMSI.EXE — honey badger animation"
+    width="100%"
+  />
+</p>
+
+<p align="center">
+  <code>BUILD · BREAK · IMPROVE · REPEAT</code>
 </p>
 
 ---
 
 <div align="center">
 
+<sub>engineered with curiosity. shipped with intent.</sub>
 
 </div>
+
