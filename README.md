@@ -47,10 +47,11 @@
 
 <p align="center">
   <img
-    src="./assets/contribution-banner.png"
-    alt="Honey badger with glowing amber contribution grid"
+    src="https://raw.githubusercontent.com/Platane/snk/output/github-contribution-grid-snake-dark.svg"
+    alt="GitHub contribution snake animation"
     width="100%"
   />
 </p>
+
 
 ---
