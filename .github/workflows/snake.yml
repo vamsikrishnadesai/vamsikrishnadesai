@@ -38,7 +38,6 @@ jobs:
               path = Path(filename)
               svg = path.read_text()
 
-              # Inspect long, thin rectangles near the bottom.
               def clean_rect(match):
                   tag = match.group(0)
                   attrs = dict(
@@ -48,39 +47,27 @@ jobs:
                   try:
                       width = float(attrs.get("width", "0"))
                       height = float(attrs.get("height", "0"))
-                      y = float(attrs.get("y", "-1"))
                   except ValueError:
                       return tag
 
-                  fill = attrs.get("fill", "").lower()
-
-                  if (
-                      width > 300
-                      and 1 <= height <= 20
-                      and y > 200
-                      and fill in {
-                          "#003d2b",
-                          "#004d40",
-                          "#003b2f",
-                          "#003d2bff",
-                      }
-                  ):
-                      print(f"{filename}: removed {tag}")
+                  # Remove long horizontal rectangles only.
+                  if width > 300 and height > 1:
+                      print(f"Removing bar: {tag}")
                       return ""
 
                   return tag
 
-              svg = re.sub(r"<rect\b[^>]*>", clean_rect, svg)
+              svg = re.sub(r"<rect\b[^>]*?/>", clean_rect, svg)
               path.write_text(svg)
 
-              print(f"Processed {filename}")
-
+              print(f"Cleaned {filename}")
           PY
 
-      - name: Publish snake SVGs
+      - name: Publish cleaned SVGs
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
           build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
