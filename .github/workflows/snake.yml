@@ -24,7 +24,8 @@ jobs:
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
 
-      - name: Remove bottom timeline
+    
+      - name: Inspect SVG dimensions and bottom elements
         run: |
           python3 - <<'PY'
           from pathlib import Path
@@ -37,17 +38,25 @@ jobs:
               path = Path(filename)
               svg = path.read_text()
 
-              # Remove the bottom timeline/progress bar.
-              svg = re.sub(
-                  r'<rect[^>]*(?:height="(?:1[0-9]|2[0-9])"|y="(?:2[4-9][0-9]|3[0-9][0-9])")[^>]*/>',
-                  '',
+              print(f"\n--- {filename} ---")
+
+              match = re.search(r'<svg\b[^>]*>', svg)
+              print("SVG header:", match.group(0) if match else "Not found")
+
+              for element in re.findall(
+                  r'<(?:rect|path|line|polyline)\b[^>]*>',
                   svg
-              )
+              ):
+                  attrs = dict(re.findall(r'([\w:-]+)="([^"]*)"', element))
+                  try:
+                      y = float(attrs.get("y", "-1"))
+                  except ValueError:
+                      y = -1
 
-              path.write_text(svg)
-
-          print("bottom timeline removed")
+                  if y >= 0:
+                      print(element)
           PY
+
 
       - name: Publish snake
         uses: crazy-max/ghaction-github-pages@v4
