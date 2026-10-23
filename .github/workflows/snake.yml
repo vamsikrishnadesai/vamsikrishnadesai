@@ -1,3 +1,4 @@
+
 name: Generate Snake
 
 on:
@@ -8,15 +9,15 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   generate:
-    permissions:
-      contents: write
-
     runs-on: ubuntu-latest
 
     steps:
-      - name: Generate snake
+      - name: Generate contribution snake
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: vamsikrishnadesai
@@ -24,44 +25,62 @@ jobs:
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
 
-    
-      - name: Inspect SVG dimensions and bottom elements
+      - name: Remove bottom loading bar
         run: |
           python3 - <<'PY'
           from pathlib import Path
           import re
 
-          for filename in [
+          for filename in (
               "dist/github-snake.svg",
-              "dist/github-snake-dark.svg"
-          ]:
+              "dist/github-snake-dark.svg",
+          ):
               path = Path(filename)
               svg = path.read_text()
 
-              print(f"\n--- {filename} ---")
+              # Inspect long, thin rectangles near the bottom.
+              def clean_rect(match):
+                  tag = match.group(0)
+                  attrs = dict(
+                      re.findall(r'([\w:-]+)="([^"]*)"', tag)
+                  )
 
-              match = re.search(r'<svg\b[^>]*>', svg)
-              print("SVG header:", match.group(0) if match else "Not found")
-
-              for element in re.findall(
-                  r'<(?:rect|path|line|polyline)\b[^>]*>',
-                  svg
-              ):
-                  attrs = dict(re.findall(r'([\w:-]+)="([^"]*)"', element))
                   try:
+                      width = float(attrs.get("width", "0"))
+                      height = float(attrs.get("height", "0"))
                       y = float(attrs.get("y", "-1"))
                   except ValueError:
-                      y = -1
+                      return tag
 
-                  if y >= 0:
-                      print(element)
+                  fill = attrs.get("fill", "").lower()
+
+                  if (
+                      width > 300
+                      and 1 <= height <= 20
+                      and y > 200
+                      and fill in {
+                          "#003d2b",
+                          "#004d40",
+                          "#003b2f",
+                          "#003d2bff",
+                      }
+                  ):
+                      print(f"{filename}: removed {tag}")
+                      return ""
+
+                  return tag
+
+              svg = re.sub(r"<rect\b[^>]*>", clean_rect, svg)
+              path.write_text(svg)
+
+              print(f"Processed {filename}")
+
           PY
 
-
-      - name: Publish snake
+      - name: Publish snake SVGs
         uses: crazy-max/ghaction-github-pages@v4
         with:
-          build_dir: dist
           target_branch: output
+          build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
