@@ -40,7 +40,7 @@
     alt="Technology stack"
   />
 </p>
-› 🦡 contribution.exe
+›  🐍contribution.exe
 
 <div align="center">
   <img
@@ -48,5 +48,5 @@
     alt="GitHub contribution snake"
   />
 </div>
----
+
 
