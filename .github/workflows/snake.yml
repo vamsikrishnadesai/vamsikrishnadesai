@@ -1,4 +1,3 @@
-
 name: Generate Snake
 
 on:
@@ -25,7 +24,7 @@ jobs:
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
 
-      - name: Remove bottom loading bar
+      - name: Remove bottom bar by cropping SVG
         run: |
           python3 - <<'PY'
           from pathlib import Path
@@ -38,36 +37,44 @@ jobs:
               path = Path(filename)
               svg = path.read_text()
 
-              def clean_rect(match):
-                  tag = match.group(0)
-                  attrs = dict(
-                      re.findall(r'([\w:-]+)="([^"]*)"', tag)
+              # Find the SVG canvas dimensions.
+              match = re.search(r'<svg\b[^>]*>', svg)
+              if not match:
+                  raise RuntimeError(f"SVG header not found: {filename}")
+
+              header = match.group(0)
+
+              # The generated snake uses a viewBox; crop its lower section.
+              viewbox = re.search(
+                  r'viewBox="([\d.\-]+)\s+([\d.\-]+)\s+([\d.]+)\s+([\d.]+)"',
+                  header
+              )
+
+              if viewbox:
+                  x, y, width, height = map(float, viewbox.groups())
+
+                  # Crop the bottom 45 units from the visible canvas.
+                  new_height = height - 45
+                  if new_height <= 0:
+                      raise RuntimeError("Invalid SVG crop height")
+
+                  new_viewbox = (
+                      f'viewBox="{x:g} {y:g} {width:g} {new_height:g}"'
                   )
 
-                  try:
-                      width = float(attrs.get("width", "0"))
-                      height = float(attrs.get("height", "0"))
-                  except ValueError:
-                      return tag
+                  header = header[:viewbox.start()] + new_viewbox + header[viewbox.end():]
+                  svg = svg[:match.start()] + header + svg[match.end():]
+                  path.write_text(svg)
 
-                  # Remove long horizontal rectangles only.
-                  if width > 300 and height > 1:
-                      print(f"Removing bar: {tag}")
-                      return ""
-
-                  return tag
-
-              svg = re.sub(r"<rect\b[^>]*?/>", clean_rect, svg)
-              path.write_text(svg)
-
-              print(f"Cleaned {filename}")
+                  print(f"Cropped {filename}: height {height:g} -> {new_height:g}")
+              else:
+                  print(f"No viewBox found in {filename}; left unchanged")
           PY
 
-      - name: Publish cleaned SVGs
+      - name: Publish snake SVGs
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
           build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
