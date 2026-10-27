@@ -40,6 +40,13 @@
     alt="Technology stack"
   />
 </p>
+› 🦡 contribution.exe
 
+<div align="center">
+  <img
+    src="https://raw.githubusercontent.com/vamsikrishnadesai/vamsikrishnadesai/output/github-snake-dark.svg"
+    alt="GitHub contribution snake"
+  />
+</div>
 ---
 
